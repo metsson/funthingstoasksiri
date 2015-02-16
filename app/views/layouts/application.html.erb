@@ -24,11 +24,15 @@
 <body>
 <div class="container">
     <nav>  
-    <h1><strong>fun</strong>things<strong>to</strong>ask<strong>Siri</strong>.com</h1>
+        <h1>Fun Things to Ask Siri <small>When You're Bored as Hell!</small></h1>    
     </nav>    
     <%= yield %>
+    <div class="btn-group">
+    <a class="btn btn-primary btn-sm" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>"><i class="fa fa-facebook"></i>
+    Share on Facebook</a>
+    </div>
     <footer>
-        An original idea form <a href="https://www.facebook.com/andreas.ekstrom.395">Andreas Ekström</a>. Made in Sweden by <a href="http://metsson.se" class="metsson-logo-font">metsson</a>.<br>
+        An original idea by <a href="https://www.facebook.com/andreas.ekstrom.395">Andreas Ekström</a>. Developed by <a href="http://metsson.se" class="metsson-logo-font">metsson</a> on a boring Sunday in Sweden.<br>
         <small>funthingstoasksiri.com is not affiliated with nor owned by Apple Inc. Siri® is a voice recognition software and registered trademark of Apple Inc. The icons on this website are copyrighted by <a href="http://www.pelfusion.com/" target="_blank">PelFusion</a>.</small>        
     </footer>
 </div>

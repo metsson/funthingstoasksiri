@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
-    before_filter :get_next_question, :check_seen
-    after_filter :add_to_seen
+    before_filter :get_next_question
 
     def index
         get_question_by_id
@@ -12,7 +11,8 @@ class QuestionsController < ApplicationController
 
 private
     def get_next_question        
-        @next = Question.offset(rand(Question.count)).first 
+        questions ||= Question.count
+        @next = Question.offset(rand(questions)).first 
     end
 
     def get_question_by_id
@@ -25,17 +25,5 @@ private
         else
             @question = Question.first
         end            
-    end
-
-    # Add question to seen
-    def add_to_seen
-        session[:seen] << params[:id]
-    end
-
-    # Initialize or reset session
-    def check_seen
-        if session[:seen].nil? or session[:seen].size == Question.count
-            session[:seen] = []
-        end
     end
 end
