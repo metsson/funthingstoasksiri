@@ -1,0 +1,19 @@
+<% content_for :meta_tags do %>
+<title><%= @question.content %> &mdash; Fun things to ask Siri</title>
+<meta property="og:title" content="Fun things to ask Siri">
+<meta property="og:description" content="<%= @question.content %> ">
+<meta property="og:url" content="<%= request.original_url %>">
+<meta property="og:site_name" content="funthingstoasksiri.com">
+<meta property="og:image" content="/apple-touch-icon-144x144.png">
+<meta property="og:type" content="website">
+<% end %>
+<article class="questions">
+    <h1>#<%= @question.id %></h1>
+    <p class="lead">
+        <%= @question.content %>    
+    </p>
+    <%= link_to question_path(title: @next.content.parameterize, id: @next.id), class: 'btn btn-default btn-lg' do %>
+        NEXT 
+    <% end %>
+    <br><small>'<%= @next.content.truncate(10) %>'</small>
+</article>
